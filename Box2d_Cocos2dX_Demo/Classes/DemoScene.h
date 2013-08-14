@@ -29,8 +29,6 @@ public:
     
     virtual void ccTouchesEnded(CCSet *pTouches,CCEvent *pevent);
     
-    void update(float dt);
-    
     void draw();
     
     virtual void nextScene();

@@ -30,7 +30,6 @@ using namespace cocos2d;
 class AbstractScene : public CCObject{
 public:
    virtual bool init(Interface* currentLayer);
-   void update(float dt);
    void draw();
 private:
     void Btn_callback(CCObject *object);

@@ -24,17 +24,23 @@ bool DemoScene::init(){
         return false;
     }
    
+    CCSize winSize=CCDirector::sharedDirector()->getWinSize();
     
     //初始化
     a_scene=new AbstractScene();
     a_scene->init(this);
     
     //添加box刚体
-    BasicPhysics::sharedPhysics()->createBody(NULL,
+    BasicPhysics::sharedPhysics()->createBodyInBox(NULL,
                                               ccp(100,100),
                                               b2_dynamicBody,
                                               1.0f, 1.0f, 1.0f,
                                               CCSizeMake(30.0f, 30.0f));
+    //文字提示
+    CCLabelTTF *label=CCLabelTTF::create("Tap Screen", "Marker Felt", 25);
+    label->setPosition(ccp(winSize.width/2,winSize.height-100));
+    this->addChild(label);
+    
     //是否可以响应触碰事件
     this->setTouchEnabled(true);
     scheduleUpdate();
@@ -65,10 +71,6 @@ void DemoScene::preScene(){
 
 void DemoScene::refresh(){
     REPLACE_SCENE(DemoScene);
-}
-
-void DemoScene::update(float dt){
-    a_scene->update(dt);
 }
 
 void DemoScene::draw(){

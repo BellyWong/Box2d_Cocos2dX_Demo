@@ -21,10 +21,17 @@ bool DistanceJoint::init(){
         return false;
     }
     
+    CCSize winSize=CCDirector::sharedDirector()->getWinSize();
+    
+    //文字提示
+    CCLabelTTF *label=CCLabelTTF::create("DistanceJoint", "Marker Felt", 25);
+    label->setPosition(ccp(winSize.width/2,winSize.height-100));
+    this->addChild(label);
+    
     a_scene=new AbstractScene();
     a_scene->init(this);
     
-    body1=BasicPhysics::sharedPhysics()->createBody(NULL,
+    body1=BasicPhysics::sharedPhysics()->createBodyInBox(NULL,
                                                     ccp(150,300),
                                                     b2_staticBody,
                                                     1.0f, 1.0f, 1.0f,
@@ -50,15 +57,22 @@ void DistanceJoint::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent){
     touchLocation=CCDirector::sharedDirector()->convertToGL(touchLocation);
     
     //添加圆形刚体
-    BasicPhysics::sharedPhysics()->createBodyInCircle(NULL,
+    b2Body *tempBody1=BasicPhysics::sharedPhysics()->createBodyInCircle(NULL,
                                                       touchLocation,
                                                       b2_dynamicBody,
                                                       1.0f, 1.0f, 1.0f,
                                                       0.5f);
+    b2Body *tempBody2=BasicPhysics::sharedPhysics()->createBodyInCircle(NULL,
+                                                                        ccpAdd(touchLocation, ccp(100,0)),
+                                                                        b2_dynamicBody,
+                                                                        1.0f, 1.0, 1.0f,
+                                                                        0.5f);
+    PhysicsJoint::sharedJoint()->createDistanceJoint(tempBody1, tempBody2,
+                                                     tempBody1->GetPosition(),tempBody2->GetPosition());
 }
 
 void DistanceJoint::nextScene(){
-    CCLOG("这是最后一个场景");
+    REPLACE_SCENE(RevoluteJoint);
 }
 
 void DistanceJoint::preScene(){
@@ -67,10 +81,6 @@ void DistanceJoint::preScene(){
 
 void DistanceJoint::refresh(){
     REPLACE_SCENE(DistanceJoint);
-}
-
-void DistanceJoint::update(float dt){
-    a_scene->update(dt);
 }
 
 void DistanceJoint::draw(){

@@ -16,11 +16,16 @@ BasicPhysics* BasicPhysics::sharedPhysics(){
     if (!gamePhysics) {
         gamePhysics=new BasicPhysics();
         gamePhysics->initWithPhysics();
+        //启用定时器
+        CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(BasicPhysics::update), gamePhysics, 1.0f/60.0f, false);
     }
     return gamePhysics;
 }
 
 void BasicPhysics::end(){
+    //停止定时器
+    CCDirector::sharedDirector()->getScheduler()->unscheduleAllSelectors();
+    //释放相关对象
     CC_SAFE_RELEASE(gamePhysics);
     gamePhysics=NULL;
     
@@ -134,7 +139,7 @@ void BasicPhysics::crateEdgeShape(b2Body *groundBody, b2EdgeShape groundBox){
     groundBody->CreateFixture(&groundBox,0);
 }
 
-b2Body* BasicPhysics::createBody(SpriteBody *sprite,
+b2Body* BasicPhysics::createBodyInBox(SpriteBody *sprite,
                               CCPoint position,
                               b2BodyType type,
                               float density,

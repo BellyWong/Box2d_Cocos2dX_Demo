@@ -1,19 +1,16 @@
-//
-//  BasicPhysics.h
-//  PuzzleGame
-//
-//  Created by 何遵祖 on 13-6-19.
-//
-//
-
 /*
+    Created by 何遵祖 on 13-6-19.
+ 
+    GITHUB托管网址:https://github.com/GITHZZ/Box2d_Cocos2dX_Demo
+ 
     box2d物理插件:
+    该插件形式为单例(暂不支持多个物理世界）— 可用于模拟地球物理现象  如太空之类的这个还没考虑上
     
-    该插件形式为单例(不支持多个物理世界）— 可用于模拟地球物理现象  如太空之类的这个还没考虑上
- 
     BasicPhysics::sharedPhysics 产生单例
- 
-    方法有createBody产生刚体 销毁刚体
+    
+    方法有createBody产生刚体
+    destroyBody 销毁刚体
+    单例形式,转换场景后记得调用BasicPhysics::sharedPhysics->end()销毁当前场景的box2d的刚体
  */
 
 #ifndef __PuzzleGame__BasicPhysics__
@@ -44,7 +41,7 @@ public:
     //更新
     void update(float dt);
     //产生刚体
-    b2Body* createBody(SpriteBody *sprite,
+    b2Body* createBodyInBox(SpriteBody *sprite,
                     CCPoint position,
                     b2BodyType type,
                     float density,
@@ -58,7 +55,6 @@ public:
                             float friction,
                             float restitution,
                             float radius);
-    
     //删除刚体
     void destroyBody(SpriteBody *sprite);
     //绘图

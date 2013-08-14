@@ -58,10 +58,6 @@ void AbstractScene::Btn_callback(CCObject *object){
     }
 }
 
-void AbstractScene::update(float dt){
-    BasicPhysics::sharedPhysics()->update(dt);
-}
-
 void AbstractScene::draw(){
     BasicPhysics::sharedPhysics()->draw();
 }

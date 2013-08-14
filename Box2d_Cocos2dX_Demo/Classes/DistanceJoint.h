@@ -13,6 +13,7 @@
 #include "AbstractScene.h"
 #include "PhysicsSprite.h"
 #include "PhysicsJoint.h"
+#include "RevoluteJoint.h"
 
 class DistanceJoint : public Interface{
 public:
@@ -30,8 +31,6 @@ public:
     virtual void preScene();
     
     virtual void refresh();
-    
-    void update(float dt);
     
     void draw();
     
