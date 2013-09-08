@@ -62,7 +62,7 @@ public:
 private:
     CC_SYNTHESIZE_READONLY(b2World*, world_, World);
     CC_SYNTHESIZE(int, PTM_RATIO, RATIO);
-    b2Body* groundBody;
+    CC_SYNTHESIZE_READONLY(b2Body*, groundBody, GroundBody);
     GLESDebugDraw *m_debugDraw;
     ContactListener *contactListener;
     void crateEdgeShape(b2Body* groundBody,b2EdgeShape groundBox);

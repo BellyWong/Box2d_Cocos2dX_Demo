@@ -14,6 +14,7 @@
 #include "PhysicsJoint.h"
 #include "AbstractScene.h"
 #include "Interface.h"
+#include "MouseJoint.h"
 
 using namespace cocos2d;
 class RevoluteJoint : public Interface{

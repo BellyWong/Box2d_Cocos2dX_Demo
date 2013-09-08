@@ -41,18 +41,43 @@ bool RevoluteJoint::init(){
 
 void RevoluteJoint::createJoint(){
     b2Body *body1=BasicPhysics::sharedPhysics()->createBodyInCircle(NULL,
-                                                                    ccp(240,140),
+                                                                    ccp(290,140),
                                                                     b2_staticBody,
                                                                     1.0f, 1.0f, 1.0f,
                                                                     0.5f);
     b2Body *body2=BasicPhysics::sharedPhysics()->createBodyInCircle(NULL,
-                                                                    ccp(320, 140),
+                                                                    ccp(370, 140),
                                                                     b2_dynamicBody,
                                                                     1.0f, 1.0f, 1.0f,
                                                                     0.5f);
     PhysicsJoint::sharedJoint()->createRevoluteJoint(body1,
                                                      body2,
                                                      body1->GetPosition(),
+                                                     true,
+                                                     b2_pi*2,
+                                                     100);
+    
+    b2Body *activeBody=BasicPhysics::sharedPhysics()->createBodyInCircle(NULL,
+                                                                         ccp(150,150),
+                                                                         b2_dynamicBody,
+                                                                         1.0f, 1.0f, 1.0f,
+                                                                         1.0f);
+    b2Body *groundBody=BasicPhysics::sharedPhysics()->getGroundBody();
+    
+    PhysicsJoint::sharedJoint()->createRevoluteJoint(groundBody,
+                                                     activeBody,
+                                                     activeBody->GetPosition(),
+                                                     true,
+                                                     b2_pi*2,
+                                                     500);
+    b2Body *activeBody2=BasicPhysics::sharedPhysics()->createBodyInCircle(NULL,
+                                                                          ccp(100,100),
+                                                                          b2_dynamicBody,
+                                                                          1.0f, 1.0f, 1.0f,
+                                                                          1.0f);
+    PhysicsJoint::sharedJoint()->createRevoluteJoint(groundBody,
+                                                     activeBody2,
+                                                     activeBody2->GetPosition(),
                                                      true,
                                                      b2_pi*2,
                                                      500);
@@ -73,7 +98,7 @@ void RevoluteJoint::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *p
 }
 
 void RevoluteJoint::nextScene(){
-    REPLACE_SCENE(RevoluteJoint);
+    REPLACE_SCENE(MouseJoint);
 }
 
 void RevoluteJoint::preScene(){

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE0A8A2C17A4D3290062C7A3 /* RevoluteJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE0A8A2A17A4D3280062C7A3 /* RevoluteJoint.cpp */; };
 		CE0A8A2F17A4D93B0062C7A3 /* PrismaticJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE0A8A2D17A4D93A0062C7A3 /* PrismaticJoint.cpp */; };
+		CE42DE7B17DB238B00BFB3F0 /* MouseJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE42DE7917DB238B00BFB3F0 /* MouseJoint.cpp */; };
 		CE7FE11F17A410700018812B /* AbstractScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7FE11D17A410700018812B /* AbstractScene.cpp */; };
 		CE7FE12217A411330018812B /* DistanceJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7FE12017A411320018812B /* DistanceJoint.cpp */; };
 		CE7FE12517A414E00018812B /* PhysicsJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7FE12317A414E00018812B /* PhysicsJoint.cpp */; };
@@ -314,6 +315,8 @@
 		CE0A8A2B17A4D3290062C7A3 /* RevoluteJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RevoluteJoint.h; path = Classes/RevoluteJoint.h; sourceTree = "<group>"; };
 		CE0A8A2D17A4D93A0062C7A3 /* PrismaticJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PrismaticJoint.cpp; path = Classes/PrismaticJoint.cpp; sourceTree = "<group>"; };
 		CE0A8A2E17A4D93A0062C7A3 /* PrismaticJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrismaticJoint.h; path = Classes/PrismaticJoint.h; sourceTree = "<group>"; };
+		CE42DE7917DB238B00BFB3F0 /* MouseJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MouseJoint.cpp; path = Classes/MouseJoint.cpp; sourceTree = "<group>"; };
+		CE42DE7A17DB238B00BFB3F0 /* MouseJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MouseJoint.h; path = Classes/MouseJoint.h; sourceTree = "<group>"; };
 		CE7FE11D17A410700018812B /* AbstractScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractScene.cpp; path = Classes/AbstractScene.cpp; sourceTree = "<group>"; };
 		CE7FE11E17A410700018812B /* AbstractScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractScene.h; path = Classes/AbstractScene.h; sourceTree = "<group>"; };
 		CE7FE12017A411320018812B /* DistanceJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DistanceJoint.cpp; path = Classes/DistanceJoint.cpp; sourceTree = "<group>"; };
@@ -2007,6 +2010,8 @@
 				CE7FE12017A411320018812B /* DistanceJoint.cpp */,
 				CE0A8A2B17A4D3290062C7A3 /* RevoluteJoint.h */,
 				CE0A8A2A17A4D3280062C7A3 /* RevoluteJoint.cpp */,
+				CE42DE7A17DB238B00BFB3F0 /* MouseJoint.h */,
+				CE42DE7917DB238B00BFB3F0 /* MouseJoint.cpp */,
 				CE0A8A2E17A4D93A0062C7A3 /* PrismaticJoint.h */,
 				CE0A8A2D17A4D93A0062C7A3 /* PrismaticJoint.cpp */,
 				CEFF3AA217A3EE520022C079 /* Supports */,
@@ -2484,6 +2489,7 @@
 				CE7FE12517A414E00018812B /* PhysicsJoint.cpp in Sources */,
 				CE0A8A2C17A4D3290062C7A3 /* RevoluteJoint.cpp in Sources */,
 				CE0A8A2F17A4D93B0062C7A3 /* PrismaticJoint.cpp in Sources */,
+				CE42DE7B17DB238B00BFB3F0 /* MouseJoint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
